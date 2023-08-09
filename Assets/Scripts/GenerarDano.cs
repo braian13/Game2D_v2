@@ -1,0 +1,23 @@
+using System.Collections;
+using System.Collections.Generic;
+using Unity.VisualScripting;
+using UnityEngine;
+
+public class GenerarDano : MonoBehaviour
+{
+    public float cantidadDano;
+    public Vida vida;
+
+    void Start(){
+        
+    }
+
+    private void OnTriggerEnter2D(Collider2D other){
+
+        if(other.CompareTag("Player"))
+        {
+            vida.TomarVida(cantidadDano);
+            vida.efectoDano(new Vector2(transform.position.x,transform.position.y), transform.localScale.x);
+        }
+    }
+}
